@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+
     <!--子模块-->
     <modules>
         <module>common</module>
@@ -25,9 +26,13 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <mybatis-version>3.5.5</mybatis-version>
+        <spring-boot-version>2.3.3.RELEASE</spring-boot-version>
+        <spring-cloud-version>Hoxton.SR8</spring-cloud-version>
+        <spring-cloud-alibaba-version>2.2.3.RELEASE</spring-cloud-alibaba-version>
+        <mybatis-plus-version>3.4.0</mybatis-plus-version>
         <mysql-version>8.0.21</mysql-version>
         <druid-version>1.1.21</druid-version>
+        <lombok-version>1.18.12</lombok-version>
     </properties>
 
     <dependencies>
@@ -36,23 +41,41 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--Spring Cloud 依赖-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR8</version>
-            </dependency>
-            <!--Spring Boot 依赖-->
+            <!--Spring Boot-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.3.4.RELEASE</version>
+                <version>${spring-boot-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
-            <!--Mybatis-->
+            <!--Spring Cloud-->
             <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis-version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--Spring Cloud Alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--Mybatis Plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-version}</version>
+            </dependency>
+            <!--Mybatis Plus Generator-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-version}</version>
             </dependency>
             <!--MySQL-->
             <dependency>
@@ -63,8 +86,13 @@
             <!--Druid-->
             <dependency>
                 <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
+                <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

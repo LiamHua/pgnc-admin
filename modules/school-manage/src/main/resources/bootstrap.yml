@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: school-manage
+  cloud:
+    nacos:
+      discovery:
+        server-addr: huazai.fun:8848
+      config:
+        server-addr: huazai.fun:8848
+        file-extension: yml
