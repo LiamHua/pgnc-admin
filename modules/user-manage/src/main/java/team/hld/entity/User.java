@@ -29,7 +29,7 @@ public class User implements Serializable {
     /**
      * 用户表的自增id，主键
      */
-    @ApiModelProperty(value = "用户表的自增id，主键")
+    @ApiModelProperty(value = "用户表的自增id，主键", example = "123456")
     @TableId(type = IdType.AUTO)
     private Integer id;
 
@@ -72,7 +72,7 @@ public class User implements Serializable {
     /**
      * 用户积分
      */
-    @ApiModelProperty(value = "用户积分")
+    @ApiModelProperty(value = "用户积分", example = "666")
     private Integer integral;
 
     /**
@@ -84,7 +84,7 @@ public class User implements Serializable {
     /**
      * 用户学校id
      */
-    @ApiModelProperty(value = "用户学校id")
+    @ApiModelProperty(value = "用户学校id", example = "123")
     private Integer userSchoolId;
 
     /**
@@ -114,13 +114,13 @@ public class User implements Serializable {
     /**
      * 状态，1、正常 2、异常
      */
-    @ApiModelProperty(value = "状态，1、正常 2、异常")
+    @ApiModelProperty(value = "状态，1、正常 2、异常", example = "1")
     private Integer state;
 
     /**
      * 用户角色，即用户权限  1、管理员  2、注册用户  3、游客
      */
-    @ApiModelProperty(value = "用户角色，即用户权限  1、管理员  2、注册用户  3、游客")
+    @ApiModelProperty(value = "用户角色，即用户权限  1、管理员  2、注册用户  3、游客", example = "1")
     private Integer role;
 
     /**

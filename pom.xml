@@ -14,12 +14,10 @@
     <modules>
         <module>common</module>
         <module>gateway</module>
-        <module>eureka</module>
         <module>modules</module>
         <module>auth</module>
         <module>api</module>
         <module>monitor</module>
-        <module>discovery</module>
     </modules>
 
     <!--版本配置管理-->
@@ -97,12 +95,7 @@
             </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
+                <artifactId>springfox-boot-starter</artifactId>
                 <version>${swagger-version}</version>
             </dependency>
         </dependencies>

@@ -36,7 +36,7 @@ public class UserController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping
+    @GetMapping("getAllUserByPage")
     public R<IPage<User>> selectAll(Page<User> page, User user) {
         return R.ok(userService.page(page, new QueryWrapper<>(user)));
     }
