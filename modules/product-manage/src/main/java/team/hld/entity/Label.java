@@ -2,33 +2,40 @@ package team.hld.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
+
+import java.io.Serializable;
+
 
 /**
- * <p>
- * 
- * </p>
+ * Label表实体类
  *
  * @author liam
- * @since 2020-10-08
+ * @since 2020-10-09 13:12:32
  */
-@Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="Label对象", description="")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ApiModel(description = "")
 public class Label implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -51985227212255254L;
 
+    /**
+     * 标签表id
+     */
     @ApiModelProperty(value = "标签表id")
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
+    /**
+     * 标签内容
+     */
     @ApiModelProperty(value = "标签内容")
     private String label;
-
 
 }

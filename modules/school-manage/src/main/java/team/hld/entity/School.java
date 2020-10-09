@@ -2,39 +2,52 @@ package team.hld.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
+
+import java.io.Serializable;
+
 
 /**
- * <p>
- * 
- * </p>
+ * School表实体类
  *
  * @author liam
- * @since 2020-10-08
+ * @since 2020-10-09 13:12:10
  */
-@Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="School对象", description="")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ApiModel(description = "")
 public class School implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 532349287885450599L;
 
+    /**
+     * 学校表的主键
+     */
     @ApiModelProperty(value = "学校表的主键")
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
+    /**
+     * 学校名称
+     */
     @ApiModelProperty(value = "学校名称")
     private String schoolName;
 
+    /**
+     * 保留字段1
+     */
     @ApiModelProperty(value = "保留字段1")
     private String retain1;
 
+    /**
+     * 保留字段2
+     */
     @ApiModelProperty(value = "保留字段2")
     private String retain2;
-
 
 }

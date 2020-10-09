@@ -1,20 +1,18 @@
 package team.hld.service.impl;
 
-import team.hld.entity.Goodsimage;
-import team.hld.mapper.GoodsimageMapper;
-import team.hld.service.IGoodsimageService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import team.hld.entity.Goodsimage;
+import team.hld.mapper.GoodsimageMapper;
+import team.hld.service.GoodsimageService;
 
 /**
- * <p>
- *  服务实现类
- * </p>
+ * Goodsimage表服务实现类
  *
  * @author liam
- * @since 2020-10-08
+ * @since 2020-10-09 13:12:31
  */
 @Service
-public class GoodsimageServiceImpl extends ServiceImpl<GoodsimageMapper, Goodsimage> implements IGoodsimageService {
+public class GoodsimageServiceImpl extends ServiceImpl<GoodsimageMapper, Goodsimage> implements GoodsimageService {
 
 }

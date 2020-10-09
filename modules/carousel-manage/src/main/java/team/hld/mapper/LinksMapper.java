@@ -1,15 +1,13 @@
 package team.hld.mapper;
 
-import team.hld.entity.Links;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import team.hld.entity.Links;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
+ * Links表数据库访问层
  *
  * @author liam
- * @since 2020-10-08
+ * @since 2020-10-09 13:12:19
  */
 public interface LinksMapper extends BaseMapper<Links> {
 

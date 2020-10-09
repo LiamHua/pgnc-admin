@@ -1,15 +1,13 @@
 package team.hld.mapper;
 
-import team.hld.entity.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import team.hld.entity.Comment;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
+ * Comment表数据库访问层
  *
  * @author liam
- * @since 2020-10-08
+ * @since 2020-10-09 13:12:51
  */
 public interface CommentMapper extends BaseMapper<Comment> {
 

@@ -1,0 +1,14 @@
+package team.hld.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import team.hld.entity.Links;
+
+/**
+ * Links表服务接口层
+ *
+ * @author liam
+ * @since 2020-10-09 13:12:19
+ */
+public interface LinksService extends IService<Links> {
+
+}

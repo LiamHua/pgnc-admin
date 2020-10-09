@@ -1,20 +1,18 @@
 package team.hld.service.impl;
 
-import team.hld.entity.User;
-import team.hld.mapper.UserMapper;
-import team.hld.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import team.hld.entity.User;
+import team.hld.mapper.UserMapper;
+import team.hld.service.UserService;
 
 /**
- * <p>
- *  服务实现类
- * </p>
+ * User表服务实现类
  *
  * @author liam
- * @since 2020-10-08
+ * @since 2020-10-09 13:12:03
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
 }

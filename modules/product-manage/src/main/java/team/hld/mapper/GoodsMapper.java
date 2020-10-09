@@ -1,15 +1,13 @@
 package team.hld.mapper;
 
-import team.hld.entity.Goods;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import team.hld.entity.Goods;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
+ * Goods表数据库访问层
  *
  * @author liam
- * @since 2020-10-08
+ * @since 2020-10-09 13:12:29
  */
 public interface GoodsMapper extends BaseMapper<Goods> {
 

@@ -1,15 +1,13 @@
 package team.hld.mapper;
 
-import team.hld.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import team.hld.entity.User;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
+ * User表数据库访问层
  *
  * @author liam
- * @since 2020-10-08
+ * @since 2020-10-09 13:12:03
  */
 public interface UserMapper extends BaseMapper<User> {
 
