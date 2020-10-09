@@ -11,6 +11,7 @@ import team.hld.entity.User;
 import team.hld.service.UserService;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,6 +28,14 @@ public class UserController {
      */
     @Autowired
     UserService userService;
+
+    /**
+     * 测试
+     */
+    @GetMapping("/test")
+    public String test() {
+        return new Date().toString();
+    }
 
     /**
      * 分页查询所有数据

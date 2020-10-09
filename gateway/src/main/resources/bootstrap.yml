@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-manage
+    name: zuul-proxy
   cloud:
     nacos:
       discovery:
@@ -10,4 +10,3 @@ spring:
         file-extension: yml
         shared-configs: mysql.yml, common.yml
         refresh-enabled: true
-
