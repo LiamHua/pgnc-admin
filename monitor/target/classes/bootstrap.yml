@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-manage
+    name: admin-server
   cloud:
     nacos:
       discovery:
@@ -8,5 +8,5 @@ spring:
       config:
         server-addr: huazai.fun:8848
         file-extension: yml
-        shared-configs: mysql.yml, common-modules.yml
+#        shared-configs: mysql.yml, common.yml
         refresh-enabled: true

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 聚合各个微服务的swagger文档
  * @author liam
  * @date 2020/10/10 09:17
  */

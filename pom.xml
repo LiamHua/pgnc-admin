@@ -32,6 +32,8 @@
         <druid-version>1.2.1</druid-version>
         <lombok-version>1.18.12</lombok-version>
         <knife4j-version>2.0.5</knife4j-version>
+        <admin-server-version>2.3.0</admin-server-version>
+        <actuator-version>2.3.4.RELEASE</actuator-version>
     </properties>
 
     <dependencies>
@@ -105,6 +107,21 @@
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${admin-server-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${admin-server-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${actuator-version}</version>
             </dependency>
         </dependencies>
 
