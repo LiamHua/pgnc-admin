@@ -8,4 +8,5 @@ spring:
       config:
         server-addr: huazai.fun:8848
         file-extension: yml
+        shared-configs: common.yml
         refresh-enabled: true
