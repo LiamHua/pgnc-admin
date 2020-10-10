@@ -10,3 +10,6 @@ spring:
         file-extension: yml
         shared-configs: mysql.yml, common.yml
         refresh-enabled: true
+  datasource:
+    druid:
+      aop-patterns: team.hld.service.*
