@@ -10,4 +10,16 @@ spring:
         file-extension: yml
         shared-configs: mysql.yml, common.yml
         refresh-enabled: true
-
+  datasource:
+    druid:
+      filter:
+        stat:
+          enabled: true
+          db-type: mysql
+          log-slow-sql: true
+          slow-sql-millis: 2000
+        wall:
+          enabled: true
+        slf4j:
+          enabled: true
+          connection-log-enabled: true

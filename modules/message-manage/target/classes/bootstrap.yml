@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: message-manage
+  cloud:
+    nacos:
+      discovery:
+        server-addr: huazai.fun:8848
+      config:
+        server-addr: huazai.fun:8848
+        file-extension: yml
+        shared-configs: mysql.yml, common.yml
+        refresh-enabled: true
