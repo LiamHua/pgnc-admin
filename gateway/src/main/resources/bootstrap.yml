@@ -10,3 +10,4 @@ spring:
         file-extension: yml
         shared-configs: common.yml
         refresh-enabled: true
+        group: pgnc-admin

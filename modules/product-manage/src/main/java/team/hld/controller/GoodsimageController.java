@@ -36,7 +36,7 @@ public class GoodsimageController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping
+    @GetMapping("getProducts")
     public R<IPage<Goodsimage>> selectAll(Page<Goodsimage> page, Goodsimage goodsimage) {
         return R.ok(goodsimageService.page(page, new QueryWrapper<>(goodsimage)));
     }
@@ -48,7 +48,7 @@ public class GoodsimageController {
      * @return 单条数据
      */
     @ApiOperation("通过主键查询单条数据")
-    @GetMapping("{id}")
+    @GetMapping("/get/{id}")
     public R<Goodsimage> selectOne(@PathVariable Serializable id) {
         return R.ok(goodsimageService.getById(id));
     }
@@ -60,7 +60,7 @@ public class GoodsimageController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping
+    @PostMapping("/addProduct")
     public R<Integer> insert(@RequestBody Goodsimage goodsimage) {
         boolean rs = goodsimageService.save(goodsimage);
         return R.ok(rs ? goodsimage.getId() : 0);
@@ -73,7 +73,7 @@ public class GoodsimageController {
      * @return 修改结果
      */
     @ApiOperation("修改数据")
-    @PutMapping
+    @PutMapping("/updateImage")
     public R<Boolean> update(@RequestBody Goodsimage goodsimage) {
         return R.ok(goodsimageService.updateById(goodsimage));
     }
@@ -85,7 +85,7 @@ public class GoodsimageController {
      * @return 删除结果
      */
     @ApiOperation("单条/批量删除数据")
-    @DeleteMapping
+    @DeleteMapping("/deleteProduct")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(goodsimageService.removeByIds(idList));
     }
