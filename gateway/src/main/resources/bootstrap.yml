@@ -8,6 +8,11 @@ spring:
       config:
         server-addr: huazai.fun:8848
         file-extension: yml
-        shared-configs: common.yml
         refresh-enabled: true
         group: pgnc-admin
+        extension-configs:
+          - data-id: common.yml
+            group: pgnc-admin
+            refresh: true
+zuul:
+  sensitive-headers: Cookie,Set-Cookie
