@@ -36,7 +36,7 @@ public class CategoryController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping
+    @GetMapping("/getAllCategories")
     public R<IPage<Category>> selectAll(Page<Category> page, Category category) {
         return R.ok(categoryService.page(page, new QueryWrapper<>(category)));
     }
@@ -48,7 +48,7 @@ public class CategoryController {
      * @return 单条数据
      */
     @ApiOperation("通过主键查询单条数据")
-    @GetMapping("{id}")
+    @GetMapping("/getCategoryById/{id}")
     public R<Category> selectOne(@PathVariable Serializable id) {
         return R.ok(categoryService.getById(id));
     }
@@ -60,7 +60,7 @@ public class CategoryController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping
+    @PostMapping("/addCategory")
     public R<Integer> insert(@RequestBody Category category) {
         boolean rs = categoryService.save(category);
         return R.ok(rs ? category.getId() : 0);
@@ -73,7 +73,7 @@ public class CategoryController {
      * @return 修改结果
      */
     @ApiOperation("修改数据")
-    @PutMapping
+    @PutMapping("/updateCategory")
     public R<Boolean> update(@RequestBody Category category) {
         return R.ok(categoryService.updateById(category));
     }
@@ -85,7 +85,7 @@ public class CategoryController {
      * @return 删除结果
      */
     @ApiOperation("单条/批量删除数据")
-    @DeleteMapping
+    @DeleteMapping("/deleteCategory")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(categoryService.removeByIds(idList));
     }

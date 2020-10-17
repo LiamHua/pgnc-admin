@@ -36,7 +36,7 @@ public class CommentController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping
+    @GetMapping("/getAllComments")
     public R<IPage<Comment>> selectAll(Page<Comment> page, Comment comment) {
         return R.ok(commentService.page(page, new QueryWrapper<>(comment)));
     }
@@ -48,7 +48,7 @@ public class CommentController {
      * @return 单条数据
      */
     @ApiOperation("通过主键查询单条数据")
-    @GetMapping("{id}")
+    @GetMapping("/getCommentById/{id}")
     public R<Comment> selectOne(@PathVariable Serializable id) {
         return R.ok(commentService.getById(id));
     }
@@ -60,7 +60,7 @@ public class CommentController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping
+    @PostMapping("/addComment")
     public R<Integer> insert(@RequestBody Comment comment) {
         boolean rs = commentService.save(comment);
         return R.ok(rs ? comment.getId() : 0);
@@ -73,7 +73,7 @@ public class CommentController {
      * @return 修改结果
      */
     @ApiOperation("修改数据")
-    @PutMapping
+    @PutMapping("/updateComment")
     public R<Boolean> update(@RequestBody Comment comment) {
         return R.ok(commentService.updateById(comment));
     }
@@ -85,7 +85,7 @@ public class CommentController {
      * @return 删除结果
      */
     @ApiOperation("单条/批量删除数据")
-    @DeleteMapping
+    @DeleteMapping("/deleteComment")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(commentService.removeByIds(idList));
     }
