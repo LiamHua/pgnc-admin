@@ -16,7 +16,6 @@
         <module>gateway</module>
         <module>modules</module>
         <module>auth</module>
-        <module>api</module>
         <module>monitor</module>
     </modules>
 
@@ -33,6 +32,7 @@
         <lombok-version>1.18.12</lombok-version>
         <knife4j-version>2.0.5</knife4j-version>
         <admin-server-version>2.3.0</admin-server-version>
+        <common-pool>2.9.0</common-pool>
     </properties>
 
     <dependencies>
@@ -110,6 +110,11 @@
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-client</artifactId>
                 <version>${admin-server-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${common-pool}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

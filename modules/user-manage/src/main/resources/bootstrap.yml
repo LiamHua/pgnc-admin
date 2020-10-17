@@ -17,18 +17,3 @@ spring:
           - data-id: common.yml
             group: pgnc-admin
             refresh: true
-security:
-  oauth2:
-    resource:
-      id: user-manage
-      token-info-uri: http://localhost:8010/oauth/check_token
-#      user-info-uri: http://localhost:8010/user
-    client:
-      client-id: pgnc
-      client-secret: pgnc
-      access-token-uri: http://localhost:8010/oauth/token
-      user-authorization-uri: http://localhost:8010/oauth/authorize
-      scope: all
-      grant-type: password
-    authorization:
-      check-token-access: http://localhost:8010/oauth/check_token

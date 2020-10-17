@@ -34,7 +34,6 @@ public class UserController {
      * 测试
      */
     @GetMapping("/test")
-    @PreAuthorize("isAnonymous()")
     public String test() {
         return new Date().toString();
     }

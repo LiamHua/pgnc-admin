@@ -20,8 +20,3 @@ spring:
           - data-id: common.yml
             group: pgnc-admin
             refresh: true
-  redis:
-    host: huazai.fun
-    port: 6379
-    password: 321098
-    database: 0

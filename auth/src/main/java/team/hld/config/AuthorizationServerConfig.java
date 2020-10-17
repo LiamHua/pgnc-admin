@@ -2,6 +2,7 @@ package team.hld.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,6 +27,7 @@ import team.hld.service.MyUserDetailsService;
  * @date 2020/10/11 20:19
  */
 @Configuration
+@RefreshScope
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
@@ -43,11 +45,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     TokenStore tokenStore;
 
+    @Autowired
+    ResourceConfig resourceConfig;
+
     @Value("${security.oauth2.client.client-id}")
-    String clientId;
+    private String clientId;
 
     @Value("${security.oauth2.client.client-secret}")
-    String clientSecret;
+    private String clientSecret;
+
 
     /**
      * 配置令牌服务
@@ -90,8 +96,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         clients.inMemory()
                 .withClient(clientId)
                 .secret(passwordEncoder.encode(clientSecret))
-                .resourceIds("user-manage")
                 .scopes("all")
+                .resourceIds(resourceConfig.getResourceIds())
                 .autoApprove(false)
                 .redirectUris("http://localhost:8008/user/test")
                 .authorizedGrantTypes("authorization_code", "password");
