@@ -51,6 +51,7 @@ public class LinksController {
      */
     @ApiOperation("通过主键查询单条数据")
     @GetMapping("/getLinkById/{id}")
+    @PreAuthorize("hasAuthority('links:list')")
     public R<Links> selectOne(@PathVariable Serializable id) {
         return R.ok(linksService.getById(id));
     }
@@ -63,6 +64,7 @@ public class LinksController {
      */
     @ApiOperation("新增数据")
     @PostMapping("/addLink")
+    @PreAuthorize("hasAuthority('links:add')")
     public R<Integer> insert(@RequestBody Links links) {
         boolean rs = linksService.save(links);
         return R.ok(rs ? links.getId() : 0);
@@ -76,6 +78,7 @@ public class LinksController {
      */
     @ApiOperation("修改数据")
     @PutMapping("/updateLink")
+    @PreAuthorize("hasAuthority('links:update')")
     public R<Boolean> update(@RequestBody Links links) {
         return R.ok(linksService.updateById(links));
     }
@@ -88,6 +91,7 @@ public class LinksController {
      */
     @ApiOperation("单条/批量删除数据")
     @DeleteMapping("/deleteLink")
+    @PreAuthorize("hasAuthority('links:delete')")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(linksService.removeByIds(idList));
     }
