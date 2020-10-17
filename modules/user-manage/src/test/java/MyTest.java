@@ -1,19 +1,19 @@
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import team.hld.entity.User;
-import team.hld.mapper.UserMapper;
+import org.springframework.test.context.junit4.SpringRunner;
+import team.hld.UserApplication;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * @author liam
  * @date 2020/10/8 21:09
  */
-@SpringBootTest
+@SpringBootTest(classes = UserApplication.class)
+@RunWith(SpringRunner.class)
 public class MyTest {
     @Autowired
     DataSource dataSource;
