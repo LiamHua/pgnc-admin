@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import team.hld.entity.School;
 import team.hld.service.SchoolService;
@@ -43,7 +44,8 @@ public class SchoolController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping
+    @GetMapping("/getAllSchools")
+    @PreAuthorize("hasAuthority('school:list')")
     public R<IPage<School>> selectAll(Page<School> page, School school) {
         return R.ok(schoolService.page(page, new QueryWrapper<>(school)));
     }
@@ -55,7 +57,8 @@ public class SchoolController {
      * @return 单条数据
      */
     @ApiOperation("通过主键查询单条数据")
-    @GetMapping("get/{id}")
+    @GetMapping("/getSchoolById/{id}")
+    @PreAuthorize("hasAuthority('school:list')")
     public R<School> selectOne(@PathVariable Serializable id) {
         return R.ok(schoolService.getById(id));
     }
@@ -67,7 +70,8 @@ public class SchoolController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping
+    @PostMapping("/addSchool")
+    @PreAuthorize("hasAuthority('school:add')")
     public R<Integer> insert(@RequestBody School school) {
         boolean rs = schoolService.save(school);
         return R.ok(rs ? school.getId() : 0);
@@ -80,7 +84,8 @@ public class SchoolController {
      * @return 修改结果
      */
     @ApiOperation("修改数据")
-    @PutMapping
+    @PutMapping("/updateSchool")
+    @PreAuthorize("hasAuthority('school:update')")
     public R<Boolean> update(@RequestBody School school) {
         return R.ok(schoolService.updateById(school));
     }
@@ -92,7 +97,8 @@ public class SchoolController {
      * @return 删除结果
      */
     @ApiOperation("单条/批量删除数据")
-    @DeleteMapping
+    @DeleteMapping("/deleteSchool")
+    @PreAuthorize("hasAuthority('school:delete')")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(schoolService.removeByIds(idList));
     }

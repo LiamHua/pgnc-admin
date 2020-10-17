@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import team.hld.entity.Goods;
 import team.hld.service.GoodsService;
@@ -36,7 +37,8 @@ public class GoodsController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping
+    @GetMapping("/getAllGoods")
+    @PreAuthorize("hasAuthority('goods:list')")
     public R<IPage<Goods>> selectAll(Page<Goods> page, Goods goods) {
         return R.ok(goodsService.page(page, new QueryWrapper<>(goods)));
     }
@@ -48,7 +50,8 @@ public class GoodsController {
      * @return 单条数据
      */
     @ApiOperation("通过主键查询单条数据")
-    @GetMapping("{id}")
+    @GetMapping("/getGoodsById/{id}")
+    @PreAuthorize("hasAuthority('goods:list')")
     public R<Goods> selectOne(@PathVariable Serializable id) {
         return R.ok(goodsService.getById(id));
     }
@@ -60,7 +63,8 @@ public class GoodsController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping
+    @PostMapping("/addGoods")
+    @PreAuthorize("hasAuthority('goods:add')")
     public R<Integer> insert(@RequestBody Goods goods) {
         boolean rs = goodsService.save(goods);
         return R.ok(rs ? goods.getId() : 0);
@@ -73,7 +77,8 @@ public class GoodsController {
      * @return 修改结果
      */
     @ApiOperation("修改数据")
-    @PutMapping
+    @PutMapping("/updateGoods")
+    @PreAuthorize("hasAuthority('goods:update')")
     public R<Boolean> update(@RequestBody Goods goods) {
         return R.ok(goodsService.updateById(goods));
     }
@@ -85,7 +90,8 @@ public class GoodsController {
      * @return 删除结果
      */
     @ApiOperation("单条/批量删除数据")
-    @DeleteMapping
+    @DeleteMapping("/deleteGoods")
+    @PreAuthorize("hasAuthority('goods:delete')")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(goodsService.removeByIds(idList));
     }

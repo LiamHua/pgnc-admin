@@ -46,7 +46,8 @@ public class UserController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping("getAllUserByPage")
+    @GetMapping("/getAllUserByPage")
+    @PreAuthorize("hasAuthority('user:list')")
     public R<IPage<User>> selectAll(Page<User> page, User user) {
         return R.ok(userService.page(page, new QueryWrapper<>(user)));
     }
@@ -58,7 +59,7 @@ public class UserController {
      * @return 单条数据
      */
     @ApiOperation("通过主键查询单条数据")
-    @GetMapping("/get/{id}")
+    @GetMapping("/getUser/{id}")
     @PreAuthorize("hasAuthority('user:list')")
     public R<User> selectOne(@PathVariable Serializable id) {
         return R.ok(userService.getById(id));
@@ -71,7 +72,8 @@ public class UserController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping
+    @PostMapping("/addUser")
+    @PreAuthorize("hasAuthority('user:add')")
     public R<Integer> insert(@RequestBody User user) {
         boolean rs = userService.save(user);
         return R.ok(rs ? user.getId() : 0);
@@ -84,7 +86,8 @@ public class UserController {
      * @return 修改结果
      */
     @ApiOperation("修改数据")
-    @PutMapping
+    @PutMapping("/updateUser")
+    @PreAuthorize("hasAuthority('user:update')")
     public R<Boolean> update(@RequestBody User user) {
         return R.ok(userService.updateById(user));
     }
@@ -96,7 +99,8 @@ public class UserController {
      * @return 删除结果
      */
     @ApiOperation("单条/批量删除数据")
-    @DeleteMapping
+    @DeleteMapping("/deleteUser")
+    @PreAuthorize("hasAuthority('user:delete')")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(userService.removeByIds(idList));
     }
