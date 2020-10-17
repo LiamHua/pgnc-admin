@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import team.hld.entity.Goodsimage;
 import team.hld.service.GoodsimageService;
@@ -36,7 +37,8 @@ public class GoodsimageController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping("getProducts")
+    @GetMapping("/getAllGoodsImage")
+    @PreAuthorize("hasAuthority('goodsimage:list')")
     public R<IPage<Goodsimage>> selectAll(Page<Goodsimage> page, Goodsimage goodsimage) {
         return R.ok(goodsimageService.page(page, new QueryWrapper<>(goodsimage)));
     }
@@ -48,7 +50,8 @@ public class GoodsimageController {
      * @return 单条数据
      */
     @ApiOperation("通过主键查询单条数据")
-    @GetMapping("/get/{id}")
+    @GetMapping("/getGoodsImageById/{id}")
+    @PreAuthorize("hasAuthority('goodsimage:list')")
     public R<Goodsimage> selectOne(@PathVariable Serializable id) {
         return R.ok(goodsimageService.getById(id));
     }
@@ -60,7 +63,8 @@ public class GoodsimageController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping("/addProduct")
+    @PostMapping("/addGoodsImage")
+    @PreAuthorize("hasAuthority('goodsimage:add')")
     public R<Integer> insert(@RequestBody Goodsimage goodsimage) {
         boolean rs = goodsimageService.save(goodsimage);
         return R.ok(rs ? goodsimage.getId() : 0);
@@ -73,7 +77,8 @@ public class GoodsimageController {
      * @return 修改结果
      */
     @ApiOperation("修改数据")
-    @PutMapping("/updateImage")
+    @PutMapping("/updateGoodsImage")
+    @PreAuthorize("hasAuthority('goodsimage:update')")
     public R<Boolean> update(@RequestBody Goodsimage goodsimage) {
         return R.ok(goodsimageService.updateById(goodsimage));
     }
@@ -85,7 +90,8 @@ public class GoodsimageController {
      * @return 删除结果
      */
     @ApiOperation("单条/批量删除数据")
-    @DeleteMapping("/deleteProduct")
+    @DeleteMapping("/deleteGoodsImage")
+    @PreAuthorize("hasAuthority('goodsimage:delete')")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(goodsimageService.removeByIds(idList));
     }

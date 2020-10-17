@@ -16,7 +16,6 @@
         <module>gateway</module>
         <module>modules</module>
         <module>auth</module>
-        <module>api</module>
         <module>monitor</module>
     </modules>
 
@@ -33,7 +32,7 @@
         <lombok-version>1.18.12</lombok-version>
         <knife4j-version>2.0.5</knife4j-version>
         <admin-server-version>2.3.0</admin-server-version>
-        <actuator-version>2.3.4.RELEASE</actuator-version>
+        <common-pool>2.9.0</common-pool>
     </properties>
 
     <dependencies>
@@ -70,12 +69,6 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus-version}</version>
-            </dependency>
-            <!--Mybatis Plus Generator-->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatis-plus-version}</version>
             </dependency>
             <!--MySQL-->
@@ -119,12 +112,11 @@
                 <version>${admin-server-version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-actuator</artifactId>
-                <version>${actuator-version}</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${common-pool}</version>
             </dependency>
         </dependencies>
-
     </dependencyManagement>
 
     <build>

@@ -118,12 +118,6 @@ public class User implements Serializable {
     private Integer state;
 
     /**
-     * 用户角色，即用户权限  1、管理员  2、注册用户  3、游客
-     */
-    @ApiModelProperty(value = "用户角色，即用户权限  1、管理员  2、注册用户  3、游客", example = "1")
-    private Integer role;
-
-    /**
      * 保留字段1
      */
     @ApiModelProperty(value = "保留字段1")

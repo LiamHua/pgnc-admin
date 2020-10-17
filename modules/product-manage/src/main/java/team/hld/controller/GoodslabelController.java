@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import team.hld.entity.Goodslabel;
 import team.hld.service.GoodslabelService;
@@ -36,7 +37,8 @@ public class GoodslabelController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping
+    @GetMapping("/getAllGoodsLabel")
+    @PreAuthorize("hasAuthority('goodslabel:list')")
     public R<IPage<Goodslabel>> selectAll(Page<Goodslabel> page, Goodslabel goodslabel) {
         return R.ok(goodslabelService.page(page, new QueryWrapper<>(goodslabel)));
     }
@@ -48,7 +50,8 @@ public class GoodslabelController {
      * @return 单条数据
      */
     @ApiOperation("通过主键查询单条数据")
-    @GetMapping("{id}")
+    @GetMapping("/getGoodsLabel/{id}")
+    @PreAuthorize("hasAuthority('goodslabel:list')")
     public R<Goodslabel> selectOne(@PathVariable Serializable id) {
         return R.ok(goodslabelService.getById(id));
     }
@@ -60,7 +63,8 @@ public class GoodslabelController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping
+    @PostMapping("/addGoodsLabel")
+    @PreAuthorize("hasAuthority('goodslabel:add')")
     public R<Integer> insert(@RequestBody Goodslabel goodslabel) {
         boolean rs = goodslabelService.save(goodslabel);
         return R.ok(rs ? goodslabel.getId() : 0);
@@ -73,7 +77,8 @@ public class GoodslabelController {
      * @return 修改结果
      */
     @ApiOperation("修改数据")
-    @PutMapping
+    @PutMapping("/updateGoodsLabel")
+    @PreAuthorize("hasAuthority('goodslabel:update')")
     public R<Boolean> update(@RequestBody Goodslabel goodslabel) {
         return R.ok(goodslabelService.updateById(goodslabel));
     }
@@ -85,7 +90,8 @@ public class GoodslabelController {
      * @return 删除结果
      */
     @ApiOperation("单条/批量删除数据")
-    @DeleteMapping
+    @DeleteMapping("/deleteGoodsLabel")
+    @PreAuthorize("hasAuthority('goodslabel:delete')")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(goodslabelService.removeByIds(idList));
     }
