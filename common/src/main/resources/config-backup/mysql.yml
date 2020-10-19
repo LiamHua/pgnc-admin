@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://huazai.fun:3306/pgnc
-    username: liam
-    password: 321$098
+    url: jdbc:mysql://***/pgnc
+    username: ***
+    password: ***
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 3
