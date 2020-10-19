@@ -10,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @author liam
  * @date 2020/10/10 18:56
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableAdminServer
 @EnableDiscoveryClient
 public class AdminServerApplication {

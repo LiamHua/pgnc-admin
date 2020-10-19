@@ -62,7 +62,8 @@ public class UserController {
     @GetMapping("/getUser/{id}")
     @PreAuthorize("hasAuthority('user:list')")
     public R<User> selectOne(@PathVariable Serializable id) {
-        return R.ok(userService.getById(id));
+        User user = userService.getById(id);
+        return user != null ? R.ok(user) : R.failed("该用户不存在！");
     }
 
     /**
