@@ -1,0 +1,7 @@
+server:
+  port: 8009
+spring:
+  security:
+    user:
+      name: pgnc
+      password: pgnc

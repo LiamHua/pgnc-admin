@@ -1,0 +1,15 @@
+server:
+  port: 8010
+  resourceIds:
+    - "user-manage"
+    - "school-manage"
+    - "category-manage"
+    - "carousel-manage"
+    - "comment-manage"
+    - "message-manage"
+    - "product-manage"
+security:
+  oauth2:
+    client:
+      client-id: pgnc
+      client-secret: pgnc

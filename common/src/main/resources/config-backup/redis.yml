@@ -1,0 +1,13 @@
+spring:
+  redis:
+    host: huazai.fun
+    port: 6379
+    password: 321098
+    database: 0
+    timeout: 60s
+    lettuce:
+      pool:
+        max-idle: 10
+        max-active: 8
+        max-wait: 60000
+        min-idle: 5

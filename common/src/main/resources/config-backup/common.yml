@@ -1,0 +1,22 @@
+spring:
+  security:
+    user:
+      password: none
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:8008/auth/oauth/check_token
+    client:
+      client-id: pgnc
+      client-secret: pgnc
+      access-token-uri: http://localhost:8008/auth/oauth/token
+      user-authorization-uri: http://localhost:8008/auth/oauth/authorize
+      scope: all

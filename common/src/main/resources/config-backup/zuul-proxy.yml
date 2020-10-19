@@ -1,0 +1,39 @@
+server:
+  port: 8008
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ 
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+zuul:
+  retryable: true
+  add-host-header: true
+  sensitive-headers: Cookies
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+  routes:
+    user-manage:
+      path: /user/**
+    school-manage:
+      path: /school/**
+    product-manage:
+      path: /product/**
+    message-manage:
+      path: /message/**
+    category-manage:
+      path: /category/**
+    carousel-manage:
+      path: /carousel/**
+    comment-manage:
+      path: /comment/**
+    auth-server:
+      path: /auth/**
+    admin-server:
+      path: /admin/**
