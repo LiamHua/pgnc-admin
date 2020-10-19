@@ -14,6 +14,9 @@ spring:
           - data-id: mysql.yml
             group: pgnc-admin
             refresh: true
+<<<<<<< HEAD
+=======
           - data-id: common.yml
             group: pgnc-admin
             refresh: true
+>>>>>>> 8d6eb60c319cc819a7ab80d1d2ca5ae4cc1704e8

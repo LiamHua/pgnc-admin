@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import team.hld.entity.Category;
 import team.hld.service.CategoryService;
@@ -36,7 +37,8 @@ public class CategoryController {
      * @return 所有数据
      */
     @ApiOperation("分页查询所有数据")
-    @GetMapping
+    @GetMapping("/getAllCategories")
+    @PreAuthorize("hasAuthority('category:list')")
     public R<IPage<Category>> selectAll(Page<Category> page, Category category) {
         return R.ok(categoryService.page(page, new QueryWrapper<>(category)));
     }
@@ -48,7 +50,8 @@ public class CategoryController {
      * @return 单条数据
      */
     @ApiOperation("通过主键查询单条数据")
-    @GetMapping("{id}")
+    @GetMapping("/getCategoryById/{id}")
+    @PreAuthorize("hasAuthority('category:list')")
     public R<Category> selectOne(@PathVariable Serializable id) {
         return R.ok(categoryService.getById(id));
     }
@@ -60,7 +63,8 @@ public class CategoryController {
      * @return 新增结果
      */
     @ApiOperation("新增数据")
-    @PostMapping
+    @PostMapping("/addCategory")
+    @PreAuthorize("hasAuthority('category:add')")
     public R<Integer> insert(@RequestBody Category category) {
         boolean rs = categoryService.save(category);
         return R.ok(rs ? category.getId() : 0);
@@ -73,7 +77,8 @@ public class CategoryController {
      * @return 修改结果
      */
     @ApiOperation("修改数据")
-    @PutMapping
+    @PutMapping("/updateCategory")
+    @PreAuthorize("hasAuthority('category:update')")
     public R<Boolean> update(@RequestBody Category category) {
         return R.ok(categoryService.updateById(category));
     }
@@ -85,7 +90,8 @@ public class CategoryController {
      * @return 删除结果
      */
     @ApiOperation("单条/批量删除数据")
-    @DeleteMapping
+    @DeleteMapping("/deleteCategory")
+    @PreAuthorize("hasAuthority('category:delete')")
     public R<Boolean> delete(@RequestParam("idList") List<Long> idList) {
         return R.ok(categoryService.removeByIds(idList));
     }
