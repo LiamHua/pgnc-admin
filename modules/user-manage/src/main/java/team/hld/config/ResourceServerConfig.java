@@ -20,7 +20,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     String resourceId;
 
     @Override
-    public void configure(ResourceServerSecurityConfigurer resources) {
+    public void configure(ResourceServerSecurityConfigurer resources){
         resources.resourceId(resourceId);
     }
 
@@ -29,7 +29,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/test",
                         "/actuator/**",
-                        "/v2/api-docs",
+                        "/v2/**",
                         "/swagger-resources",
                         "/swagger-resources/**",
                         "/configuration/ui",
