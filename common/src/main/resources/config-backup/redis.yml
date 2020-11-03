@@ -1,8 +1,8 @@
 spring:
   redis:
-    host: huazai.fun
+    host: ***
     port: 6379
-    password: 321098
+    password: ***
     database: 0
     timeout: 60s
     lettuce:
