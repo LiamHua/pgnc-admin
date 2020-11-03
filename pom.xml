@@ -17,6 +17,7 @@
         <module>modules</module>
         <module>auth</module>
         <module>monitor</module>
+        <module>Test</module>
     </modules>
 
     <!--版本配置管理-->
